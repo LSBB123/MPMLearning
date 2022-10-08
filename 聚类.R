@@ -40,7 +40,6 @@ TNBC_metabric_count_clinical_2 <- TNBC_metabric_count_clinical_2[, -1]
 names(TNBC_metabric_count_clinical_2)[names(TNBC_metabric_count_clinical_2) == 'Overall Survival (Months)'] <- 'futime'
 names(TNBC_metabric_count_clinical_2)[names(TNBC_metabric_count_clinical_2) == "Patient's Vital Status"] <- 'fustat'
 rt <- TNBC_metabric_count_clinical_2
-
 rt <- rt[, c(8, 12, 16, 20, 25)]
 
 #这里采用中位数绝对差mad值，进行中位数中心化构建模型
@@ -72,6 +71,7 @@ write.table(group,file = "ClassGroup.txt",sep = "\t",row.names = T,
 
 
 
+#聚类后的生存差异
 data=TNBC_metabric_count_clinical_2
 data <- data[, c(1, 2, 8, 12, 16, 20, 25)]
 data <- cbind(data, group)
